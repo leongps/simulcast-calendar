@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "simulcast-calendar"
+version = "0.1.0"
+description = "Synchronous Python client and CLI for the Crunchyroll simulcast calendar"
+authors = [{ name = "leongps" }]
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+dependencies = [
+    "beautifulsoup4>=4.12",
+    "cloudscraper>=1.2.71",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+]
+
+[project.scripts]
+simulcast-calendar = "simulcast_calendar.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
